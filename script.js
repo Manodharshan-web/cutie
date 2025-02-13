@@ -50,4 +50,3 @@ function checkPassword() {
     } else {
         alert("Wrong password! Try again, my love! 💕");
     }
-}
