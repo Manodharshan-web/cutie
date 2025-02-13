@@ -1,33 +1,41 @@
 function checkAnswers() {
-    let q1 = document.getElementById("q1").value.trim().toLowerCase();
+    let q1 = document.getElementById("q1").value.toLowerCase().trim();
     let q2 = document.getElementById("q2").value.trim();
-    let q3 = document.getElementById("q3").value.trim().toLowerCase();
-    let q4 = document.getElementById("q4").value.trim().toLowerCase();
+    let q3 = document.getElementById("q3").value.toLowerCase().trim();
+    let q4 = document.getElementById("q4").value.toLowerCase().trim();
     let q5 = document.getElementById("q5").value.trim();
 
+    // Correct Answers
     let correctAnswers = {
-        q1: "star",
-        q2: "4",
-        q3: "ma",
-        q4: "ya",
-        q5: "2020"
+        q1: ["star"],  
+        q2: ["4"],     
+        q3: ["ma"],    
+        q4: ["ya"],    
+        q5: ["2020"]   
     };
 
-    if (q1 === correctAnswers.q1 && q2 === correctAnswers.q2 && q3 === correctAnswers.q3 && q4 === correctAnswers.q4 && q5 === correctAnswers.q5) {
-        let password = correctAnswers.q3 + correctAnswers.q4 + correctAnswers.q5;
+    // Check if all answers are correct
+    let isCorrect =
+        correctAnswers.q1.includes(q1) &&
+        correctAnswers.q2.includes(q2) &&
+        correctAnswers.q3.includes(q3) &&
+        correctAnswers.q4.includes(q4) &&
+        correctAnswers.q5.includes(q5);
+
+    if (isCorrect) {
+        alert("Congratulations! 🎉 The secret password is: maya2020 💖");
         document.getElementById("quiz").classList.add("hidden");
         document.getElementById("passwordSection").classList.remove("hidden");
-        alert("🎉 Correct! Your secret password is: " + password);
     } else {
-        alert("❌ Oops! Some answers are incorrect. Try again!");
+        alert("Oops! Some answers are incorrect. Try again! ❤️");
     }
 }
 
 function checkPassword() {
-    let inputPassword = document.getElementById("passwordInput").value.trim().toLowerCase();
-    let correctPassword = "maya2020";
+    let passwordInput = document.getElementById("passwordInput").value.trim();
+    let correctPassword = "maya2020"; // Correct password
 
-    if (inputPassword === correctPassword) {
+    if (passwordInput === correctPassword) {
         document.getElementById("passwordSection").classList.add("hidden");
         document.getElementById("messageBox").classList.remove("hidden");
         document.getElementById("valentineMessage").innerHTML = `
@@ -40,6 +48,6 @@ function checkPassword() {
             <em>Your Rowdy ❤️🔥</em>
         `;
     } else {
-        alert("💔 Wrong password! Try again!");
+        alert("Wrong password! Try again, my love! 💕");
     }
 }
